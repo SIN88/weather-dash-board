@@ -1,11 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
 body {
-    height:70px;
+    height:70vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color:linear-gradient(rgb(47,150,163), rbg(48,62,143));
+    align-items: center;
+    background-color: linear-gradient(rgb(47,150,163), rbg(48,62,143));
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color:white;
+    color: white;
     console.log(why is no worky why )
 
 }
