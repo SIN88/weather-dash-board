@@ -9,14 +9,13 @@
 
 
 body {
-    height:70vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: linear-gradient(rgb(47,150,163), rbg(48,62,143));
+    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
-    console.log(why is no worky why )
 
 }
