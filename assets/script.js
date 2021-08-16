@@ -10,7 +10,7 @@ function getWeather() {
       console.log(data)
       const title=document.getElementById("forecast-title");
       title.textContent=data.name
-      //addCityList(cityName)
+      
       
       const lat= data.coord.lat
       const lon= data.coord.lon
@@ -25,10 +25,10 @@ searchBtn.addEventListener("click", function(event) {
 })
 
 function fiveDayForeCast(lat,lon) {
-fetch("https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly,alerts&appid=396bf9de82cd6c7d6db52ea80429e67c ")
+fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly,alerts&appid=396bf9de82cd6c7d6db52ea80429e67c `)
   .then(function(res){return res.json()}).then(function(data) {
         
-      displayWeather(data.innerHTML); 
+      displayWeather(data); 
       forecast(data.daily);
 
   })
@@ -36,7 +36,6 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&uni
 
 function forecast(daily) {
  
-  
   const day1Temp= document.getElementById("day1Temp")
   day1Temp.textContent=daily[0].temp.day
   const day1Humidity= document.getElementById("day1Humidity")
@@ -58,20 +57,7 @@ function forecast(daily) {
   const day5Humidity= document.getElementById("day5Humidity")
   day5Humidity.textContent=daily[4].humidity
 
-
 }
-//
-//function addCityList(city) {
-  //cityList = city.charAt(0).toUpperCase() + city.slice(1)
-  //if(!cityList.includes(cityCap)) {
-    //  cityList.unshift(cityCap);
-      //localStorage.setItem("cityList", JSON.stringify(cityList));
-
-  //}
- //searchHistory();
-//}
-
-//const historyList= document.getElementById("searchHistory");
 
 function searchHistory() {
   const historyList= document.getElementById("searchHistory");
@@ -89,16 +75,12 @@ function displayWeather(data){
   
   const temperature= document.getElementById("temperature");
   temperature.textContent=data.current.temp;
+  console.log(data.current.temp)
   const humidity= document.getElementById("humidity");
   humidity.textContent=data.current.humidity;
   const windSpeed= document.getElementById("windSpeed");
   windSpeed.textContent=data.current.wind_speed;
   const uvIndex= document.getElementById("uvIndex");
   uvIndex.textContent=data.current.uvi;
-
-
-
-
-
 
 }
