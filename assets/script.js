@@ -1,7 +1,7 @@
 const searchBtn= document.getElementById("searchBtn");
 const searchNow= document.getElementById("search");
 const api = "396bf9de82cd6c7d6db52ea80429e67c"
-
+const cityList =  document.getElementById("citylist");
   
 
 function getWeather() {
@@ -10,7 +10,7 @@ function getWeather() {
       console.log(data)
       const title=document.getElementById("forecast-title");
       title.textContent=data.name
-      addCityList(cityName)
+      //addCityList(cityName)
       
       const lat= data.coord.lat
       const lon= data.coord.lon
@@ -60,26 +60,22 @@ function forecast(daily) {
 
 
 }
+//
+//function addCityList(city) {
+  //cityList = city.charAt(0).toUpperCase() + city.slice(1)
+  //if(!cityList.includes(cityCap)) {
+    //  cityList.unshift(cityCap);
+      //localStorage.setItem("cityList", JSON.stringify(cityList));
 
-const cityList = JSON.parse(localStorage.getItem("cityList"));
-if(cityList=== null) {
-  cityList=[];
-  localStorage.setItem("cityList", JSON.stringify(cityList))
-}
+  //}
+ //searchHistory();
+//}
 
-function addCityList(city) {
-  city = city.charAt(0).toUpperCase() + city.slice(1)
-  if(!cityList.includes(cityCap)) {
-      cityList.unshift(cityCap);
-      localStorage.setItem("cityList", JSON.stringify(cityList));
-
-  }
- searchHistory();
-}
-
-const historyList= document.getElementById("searchHistory");
+//const historyList= document.getElementById("searchHistory");
 
 function searchHistory() {
+  const historyList= document.getElementById("searchHistory");
+
   historyList.innerHTML="";
   for (let i=0; i<cityList.length; i++) {
       console.log(cityList[i]);
